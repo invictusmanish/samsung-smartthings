@@ -13,7 +13,7 @@ import {
 const Landing = () => {
   return (
     <section className="bg-hero">
-      <div className="px-4 mx-auto py-8">
+      <div className="pb-4 pt-8">
         <div className="text-center max-w-screen-sm mx-auto">
           <Text as="caption">With SmartThings</Text>
           <Text as="title">Your home speaks you</Text>
