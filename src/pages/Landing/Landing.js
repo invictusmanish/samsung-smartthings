@@ -1,6 +1,6 @@
 const Landing = () => {
     return (
-        <div className="bg-hero">Landing</div>
+        <div className="bg-hero">Landing  <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/><br/> <br/><br/> <br/><br/>  <br/> <br/>page <br/></div>
     )
 }
 

@@ -1,9 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Modal = (props) => {
   const [showModal, setShowModal] = useState(props.show);
+  useEffect(()=>{
+    setShowModal(props.show)
+  }, [props.show])
   const handleClose = () => {
     setShowModal(false);
+    if(props?.onClose){
+      props.onClose();
+    }
   };
 
   return (

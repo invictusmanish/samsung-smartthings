@@ -4,7 +4,7 @@ import Text from '../Text/Text';
 
 const Card = ({ image, caption, title, description, ctaText, ctaLink }) => {
   return (
-    <div className="w-full h-[390] overflow-hidden shadow-lg bg-white relative flex flex-col rounded-[20px] hover:border-[#016bea] hover:border-[1.75px]">
+    <div className=" w-full h-[390] group overflow-hidden shadow-lg bg-white relative flex flex-col rounded-[20px] hover:border-[#016bea] hover:border-[1.75px]">
       <img
         className="w-full h-52 object-contain px-5"
         src={baseImagePath(image)}
@@ -25,12 +25,12 @@ const Card = ({ image, caption, title, description, ctaText, ctaLink }) => {
         </Text>
         <Text
           as="custom"
-          className="text-sm py-1 font-SamsungOne px-3"
+          className="text-sm py-1 font-SamsungOne px-6 lg:px-3"
         >
           {description}
         </Text>
       </div>
-      <div className="mt-auto py-4">
+      <div className="mt-auto py-4 pb-8">
         <Button
           link={ctaLink}
           title={ctaText ? ctaText : 'See all in action'}

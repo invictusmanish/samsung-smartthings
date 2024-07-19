@@ -46,7 +46,7 @@ const Button = (props) => {
       </button>
     );
   } else {
-    const themeClassName = `bg-black font-bold text-sm font-SamsungOne text-white py-2.5 px-6 rounded-full shadow-lg hover:bg-[#555] hover:text-[#eee] ${className}`;
+    const themeClassName = `bg-black font-bold text-sm font-SamsungOne text-white py-2.5 px-6 rounded-full shadow-lg group-hover:bg-[#dddddd] group-hover:text-[#acacac] ${className}`;
     if (shouldRenderNavLink) {
       return (
         <NavLink
