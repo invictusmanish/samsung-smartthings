@@ -1,38 +1,39 @@
-.App {
-  text-align: center;
+/* Assuming this is in your global CSS or SCSS file */
+@font-face {
+  font-family: 'SamsungSharpSans';
+  src: url('./assets/fonts/samsungsharpsans.otf') format('opentype');
+  font-weight: normal; /* Regular */
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: 'SamsungSharpSans';
+  src: url('./assets/fonts/samsungsharpsans-medium.otf') format('opentype');
+  font-weight: 500; /* Medium */
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+  font-family: 'SamsungSharpSans';
+  src: url('./assets/fonts/samsungsharpsans-bold.otf') format('opentype');
+  font-weight: bold; /* Bold */
+  font-style: normal;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@font-face {
+  font-family: 'SamsungOne';
+  src: url('./assets/fonts/SamsungOne-400.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-link {
-  color: #61dafb;
+@font-face {
+  font-family: 'SamsungOne';
+  src: url('./assets/fonts/SamsungOne-700.ttf') format('opentype');
+  font-weight: bold; /* Bold */
+  font-style: normal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  font-family: 'SamsungSharpSans', sans-serif;
 }
