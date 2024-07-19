@@ -22,7 +22,7 @@ const Landing = () => {
             integrates your home&apos;s smart devices.
           </Text>
         </div>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-3">
           <LandingRoom
             {...AISHA_DATA}
             className="bg-[rgba(82,193,186,0.80)]"
