@@ -39,11 +39,11 @@ const HotspotGif = () => {
   }, []);
 
   return (
-    <div style={{ width: '80px', height: '80px', boxSizing: 'content-box' }}>
+    <div>
       <canvas
         ref={canvasRef}
-        width={80}
-        height={80}
+        width={'80%'}
+        height={'80%'}
       ></canvas>
     </div>
   );
