@@ -1,4 +1,5 @@
 import LandingRoom from '../../components/LandingRoom/LandingRoom';
+// import Slider from '../../components/Slider/Slider';
 import Text from '../../components/UI/Text/Text';
 import { routes } from '../../utility/constant';
 import {
@@ -11,8 +12,17 @@ import {
 } from './Landing.data';
 
 const Landing = () => {
+  // const items = [
+  //     'Item 1 Content',
+  //     'Item 2 Content',
+  //     'Item 3 Content',
+  //     'Item 4 Content',
+  //     'Item 5 Content',
+  //     'Item 6 Content',
+  //   ];
   return (
     <section className="bg-hero">
+      {/* <Slider items={items} /> */}
       <div className="pb-4 pt-8">
         <div className="text-center max-w-screen-sm mx-auto">
           <Text as="caption">With SmartThings</Text>
