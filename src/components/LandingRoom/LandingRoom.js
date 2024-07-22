@@ -17,12 +17,12 @@ const LandingRoom = ({ image, title, className, hoverImage, navigateTo }) => {
           className="opacity-0 w-full h-full object-cover col-start-1 row-start-1 group-hover:opacity-80"
         />
       </div>
-      <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 -top-1/4 -left-1/4 group-hover:opacity-0 transition-opacity duration-300">
+      <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 -left-1/4 group-hover:opacity-0 transition-opacity duration-300">
         <HotspotGif />
         <Button
           btnTheme="custom"
           title={title}
-          className={`text-white ${className} py-1 font-bold text-base px-4`}
+          className={`text-white ${className} py-1 leading-9 font-bold text-base px-4`}
         />
       </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 -left-1/4 group-hover:opacity-100 transition-opacity duration-300">
