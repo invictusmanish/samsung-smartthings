@@ -1,13 +1,14 @@
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import './Slider.css';
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'red', right: 0 }}
+      style={{ ...style, display: 'block', right: '10%', zIndex: 10 }}
       onClick={onClick}
     />
   );
@@ -18,7 +19,7 @@ function SamplePrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: 'block', background: 'green', left: 0 }}
+      style={{ ...style, display: 'block', left: '5%', zIndex: 10 }}
       onClick={onClick}
     />
   );
@@ -26,9 +27,9 @@ function SamplePrevArrow(props) {
 
 const settings = {
   dots: false,
-  infinite: true,
+  infinite: false,
   speed: 500,
-  slidesToShow: 1,
+  slidesToShow: 1.25,
   slidesToScroll: 1,
   rows: 2,
   slidesPerRow: 1,
@@ -42,11 +43,9 @@ const SliderComponent = ({ items }) => {
       {items.map((item, index) => (
         <div
           key={index}
-          className="px-2"
+          className="p-0"
         >
-          <div className="bg-red-100 p-4 border border-red-200 block w-1/2 mx-auto">
-            {item}
-          </div>
+          <div className="py-2 block w-screen mx-auto">{item}</div>
         </div>
       ))}
     </Slider>
