@@ -8,7 +8,7 @@ for (let i = 0; i < 20; i++) {
   images.push(baseImagePath(filename));
 }
 
-const HotspotGif = () => {
+const HotspotGif = ({ onClick }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -39,7 +39,10 @@ const HotspotGif = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      onClick={onClick}
+      style={{ cursor: 'pointer' }}
+    >
       <canvas
         ref={canvasRef}
         width={'80%'}

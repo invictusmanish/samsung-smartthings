@@ -6,7 +6,7 @@ import second_bg from '../../../assets/images/Usecases/carlita/carlita_second.pn
 import introVideo from '../../../assets/images/Usecases/carlita/Carlita_Intro.mp4';
 import secondVideo from '../../../assets/images/Usecases/carlita/Carlita_second_video.mp4';
 import Text from '../../../components/UI/Text/Text';
-import Hotspot from '../../../components/Hotspot/Hotspot';
+import HotspotGif from '../../../components/Hotspot/Hotspot';
 import Modal from '../../../components/UI/Modal/Modal';
 
 function Carlita() {
@@ -30,7 +30,6 @@ function Carlita() {
   };
 
   const handleHotspotClick = (hotspot) => {
-    debugger;
     console.log(`${hotspot} hotspot clicked`);
   };
 
@@ -101,7 +100,7 @@ function Carlita() {
                   className="absolute"
                   style={{ top: '63%', left: '41%' }}
                 >
-                  <Hotspot
+                  <HotspotGif
                     text={'Watch'}
                     onClick={() => handleHotspotClick('Watch')}
                   />
@@ -110,25 +109,27 @@ function Carlita() {
                   className="absolute"
                   style={{ top: '51%', left: '56%' }}
                 >
-                  <Hotspot onClick={() => handleHotspotClick('Z Flip')} />
+                  <HotspotGif onClick={() => handleHotspotClick('Z Flip')} />
                 </div>
                 <div
                   className="absolute"
                   style={{ top: '72%', left: '75%' }}
                 >
-                  <Hotspot onClick={() => handleHotspotClick('Sero')} />
+                  <HotspotGif onClick={() => handleHotspotClick('Sero')} />
                 </div>
                 <div
                   className="absolute"
                   style={{ top: '62.5%', left: '30.5%' }}
                 >
-                  <Hotspot onClick={() => handleHotspotClick('Smart Plug')} />
+                  <HotspotGif
+                    onClick={() => handleHotspotClick('Smart Plug')}
+                  />
                 </div>
                 <div
                   className="absolute"
                   style={{ top: '24%', left: '21.5%' }}
                 >
-                  <Hotspot onClick={() => handleHotspotClick('Frame')} />
+                  <HotspotGif onClick={() => handleHotspotClick('Frame')} />
                 </div>
               </div>
             </>
