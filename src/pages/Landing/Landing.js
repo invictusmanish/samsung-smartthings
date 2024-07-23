@@ -19,6 +19,8 @@ import {
   MALIK_DATA_MOB,
 } from './Landing.data';
 import introVideo from '../../assets/videos/LandingPage_Intro_Desktop.mp4';
+import Modal from '../../components/UI/Modal/Modal';
+import UpArrow from '../../assets/images/icons/up-arrow.svg';
 
 const Landing = () => {
   const [showBackground, setShowBackground] = useState(false);
@@ -148,6 +150,18 @@ const Landing = () => {
           </div>
         </div>
       </div>
+      <Modal show={true}>
+        <img
+          className=" mx-auto mb-4 top-40"
+          src={UpArrow}
+          alt={'Arrow'}
+        />
+        <Text className="font-bold text-center">
+          Select a room on this page to see how
+          <br /> SmartThings routines help bring your
+          <br /> home to life
+        </Text>
+      </Modal>
     </section>
   );
 };
