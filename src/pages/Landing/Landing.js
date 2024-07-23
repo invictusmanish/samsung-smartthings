@@ -22,56 +22,58 @@ const Landing = () => {
 
   return (
     <section className="bg-hero">
-      <div className="mx-auto py-8">
-        <div className="text-center max-w-screen-sm mx-auto">
-          <Text as="caption">With SmartThings</Text>
-          <Text as="title">Your home speaks you</Text>
-          <Text>
-            Select a room below to explore how SmartThings app seamlessly
-            <br />
-            integrates your home&apos;s smart devices.
-          </Text>
-        </div>
-        {!showBackground ? (    
+      {!showBackground ? (
         <VideoPlayer
           videoSrc={introVideo}
           onVideoEnd={handleVideoEnd}
-        />) : (
-        <div className="grid grid-cols-3 gap-2">
-          <LandingRoom
-            {...AISHA_DATA}
-            buttonColor="bg-[rgba(82,193,186,0.80)]"
-            navigateTo={routes.USE_CASE_AISHA}
-          />
+        />
+      ) : (
+        <div className="mx-auto py-8">
+          <div className="text-center max-w-screen-sm mx-auto">
+            <Text as="caption">With SmartThings</Text>
+            <Text as="title">Your home speaks you</Text>
+            <Text>
+              Select a room below to explore how SmartThings app seamlessly
+              <br />
+              integrates your home&apos;s smart devices.
+            </Text>
+          </div>
 
-          <LandingRoom
-            {...EDDIE_DATA}
-            buttonColor="bg-[rgba(134,25,90,0.80)]"
-            navigateTo={routes.USE_CASE_EDDIE}
-          />
-          <LandingRoom
-            {...ERIC_DATA}
-            buttonColor="bg-[rgba(135,156,129,0.80)]"
-            navigateTo={routes.USE_CASE_ERIC}
-          />
-          <LandingRoom
-            {...CARLITA_DATA}
-            buttonColor="bg-[rgba(222,88,9,0.80)]"
-            navigateTo={routes.USE_CASE_CARLITA}
-          />
-          <LandingRoom
-            {...MALIK_DATA}
-            buttonColor="bg-[rgba(167,224,181,0.80)]"
-            navigateTo={routes.USE_CASE_MALIK}
-          />
-          <LandingRoom
-            {...FRAN_DATA}
-            buttonColor="bg-[rgba(93,171,225,0.80)]"
-            navigateTo={routes.USE_CASE_FRAN}
-          />
+          <div className="grid grid-cols-3 gap-2">
+            <LandingRoom
+              {...AISHA_DATA}
+              buttonColor="bg-[rgba(82,193,186,0.80)]"
+              navigateTo={routes.USE_CASE_AISHA}
+            />
+
+            <LandingRoom
+              {...EDDIE_DATA}
+              buttonColor="bg-[rgba(134,25,90,0.80)]"
+              navigateTo={routes.USE_CASE_EDDIE}
+            />
+            <LandingRoom
+              {...ERIC_DATA}
+              buttonColor="bg-[rgba(135,156,129,0.80)]"
+              navigateTo={routes.USE_CASE_ERIC}
+            />
+            <LandingRoom
+              {...CARLITA_DATA}
+              buttonColor="bg-[rgba(222,88,9,0.80)]"
+              navigateTo={routes.USE_CASE_CARLITA}
+            />
+            <LandingRoom
+              {...MALIK_DATA}
+              buttonColor="bg-[rgba(167,224,181,0.80)]"
+              navigateTo={routes.USE_CASE_MALIK}
+            />
+            <LandingRoom
+              {...FRAN_DATA}
+              buttonColor="bg-[rgba(93,171,225,0.80)]"
+              navigateTo={routes.USE_CASE_FRAN}
+            />
+          </div>
         </div>
-         )}
-      </div>       
+      )}
     </section>
   );
 };
