@@ -1,6 +1,8 @@
 import LandingRoom from '../../components/LandingRoom/LandingRoom';
 import Text from '../../components/UI/Text/Text';
 import { routes } from '../../utility/constant';
+import { useState } from 'react';
+import VideoPlayer from '../../components/UI/VideoPlayer/VideoPlayer';
 import {
   AISHA_DATA,
   CARLITA_DATA,
@@ -9,11 +11,18 @@ import {
   FRAN_DATA,
   MALIK_DATA,
 } from './Landing.data';
+import introVideo from '../../assets/videos/LandingPage_Intro_Desktop.mp4';
 
 const Landing = () => {
+  const [showBackground, setShowBackground] = useState(false);
+
+  const handleVideoEnd = () => {
+    setShowBackground(true);
+  };
+
   return (
     <section className="bg-hero">
-      <div className="px-4 mx-auto py-8">
+      <div className="mx-auto py-8">
         <div className="text-center max-w-screen-sm mx-auto">
           <Text as="caption">With SmartThings</Text>
           <Text as="title">Your home speaks you</Text>
@@ -23,6 +32,11 @@ const Landing = () => {
             integrates your home&apos;s smart devices.
           </Text>
         </div>
+        {!showBackground ? (    
+        <VideoPlayer
+          videoSrc={introVideo}
+          onVideoEnd={handleVideoEnd}
+        />) : (
         <div className="grid grid-cols-3 gap-2">
           <LandingRoom
             {...AISHA_DATA}
@@ -56,7 +70,8 @@ const Landing = () => {
             navigateTo={routes.USE_CASE_FRAN}
           />
         </div>
-      </div>
+         )}
+      </div>       
     </section>
   );
 };

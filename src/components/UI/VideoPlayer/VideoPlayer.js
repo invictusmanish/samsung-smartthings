@@ -16,6 +16,7 @@ const VideoPlayer = ({ videoSrc, onVideoEnd }) => {
       className="w-full h-full object-cover"
       src={videoSrc}
       autoPlay
+      muted
     />
   );
 };
