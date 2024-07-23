@@ -2,6 +2,8 @@ import LandingRoom from '../../components/LandingRoom/LandingRoom';
 import Slider from '../../components/Slider/Slider';
 import Text from '../../components/UI/Text/Text';
 import { routes } from '../../utility/constant';
+import { useState } from 'react';
+import VideoPlayer from '../../components/UI/VideoPlayer/VideoPlayer';
 import {
   AISHA_DATA,
   AISHA_DATA_MOB,
@@ -16,8 +18,14 @@ import {
   MALIK_DATA,
   MALIK_DATA_MOB,
 } from './Landing.data';
+import introVideo from '../../assets/videos/LandingPage_Intro_Desktop.mp4';
 
 const Landing = () => {
+  const [showBackground, setShowBackground] = useState(false);
+
+  const handleVideoEnd = () => {
+    setShowBackground(true);
+  };
   const items = [
     <LandingRoom
       key="aisha"
@@ -56,6 +64,16 @@ const Landing = () => {
       navigateTo={routes.USE_CASE_FRAN}
     />,
   ];
+  if (!showBackground) {
+    return (
+      <section>
+        <VideoPlayer
+          videoSrc={introVideo}
+          onVideoEnd={handleVideoEnd}
+        />
+      </section>
+    );
+  }
   return (
     <section>
       <div className="lg:hidden bg-mobile-hero h-screen">
@@ -86,6 +104,7 @@ const Landing = () => {
             <Text as="title">Your home speaks you</Text>
             <Text>
               Select a room below to explore how SmartThings app seamlessly
+              <br />
               integrates your home&apos;s smart devices.
             </Text>
           </div>
