@@ -28,7 +28,6 @@ const Dropdown = ({
   }, []);
 
   const toggleDropdown = () => {
-    event.stopPropagation();
     setIsOpen(!isOpen);
   };
 
