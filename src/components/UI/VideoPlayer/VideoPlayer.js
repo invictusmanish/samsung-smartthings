@@ -13,7 +13,7 @@ const VideoPlayer = ({ videoSrc, onVideoEnd }) => {
   return (
     <video
       id="intro-video"
-      className="w-full h-full object-cover"
+      className="w-full h-full object-cover absolute inset-0"
       src={videoSrc}
       autoPlay
       muted

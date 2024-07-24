@@ -17,15 +17,19 @@ import {
   FRAN_DATA_MOB,
   MALIK_DATA,
   MALIK_DATA_MOB,
+  LANDING_DATA
 } from './Landing.data';
-import introVideo from '../../assets/videos/LandingPage_Intro_Desktop.mp4';
+import desktopIntroVideo from '../../assets/videos/LandingPage_Intro_Desktop.mp4';
+import mobileIntroVideo from '../../assets/videos/LandingPage_Mobile.mp4';
 import Modal from '../../components/UI/Modal/Modal';
 import UpArrow from '../../assets/images/icons/up-arrow.svg';
+import AppLayout from '../../components/AppLayout';
 
 const Landing = () => {
   const [showBackground, setShowBackground] = useState(false);
 
   const handleVideoEnd = () => {
+    console.log("bg" ,showBackground);
     setShowBackground(true);
   };
   const items = [
@@ -68,15 +72,26 @@ const Landing = () => {
   ];
   if (!showBackground) {
     return (
+      <AppLayout isShowHeader = {false}>
       <section>
+        <div className='bg-hero hidden lg:block video-container'>
         <VideoPlayer
-          videoSrc={introVideo}
+          videoSrc={desktopIntroVideo}
           onVideoEnd={handleVideoEnd}
         />
+        </div>
+        <div className='lg:hidden bg-mobile-hero h-screen video-container'>
+        <VideoPlayer
+          videoSrc={mobileIntroVideo}
+          onVideoEnd={handleVideoEnd}
+        />
+        </div>
       </section>
+      </AppLayout>
     );
   }
   return (
+    <AppLayout>
     <section>
       <div className="lg:hidden bg-mobile-hero h-screen">
         <div className="text-center max-w-screen-sm mx-auto py-3">
@@ -84,26 +99,25 @@ const Landing = () => {
             as="custom"
             className="font-semibold"
           >
-            With SmartThings
+            {LANDING_DATA.caption}
           </Text>
           <Text
             as="custom"
             className="font-bold text-2xl py-2"
           >
-            Your home speaks you
+            {LANDING_DATA.title}
           </Text>
           <Text>
-            Select a room below to explore how SmartThings app seamlessly
-            integrates your home&apos;s smart devices.
+            {LANDING_DATA.description}
           </Text>
         </div>
         <Slider items={items} />
       </div>
-      <div className="bg-hero hidden lg:block">
+      <div className="bg-hero h-screen hidden lg:block">
         <div className="pb-4 pt-8">
           <div className="text-center max-w-screen-sm mx-auto">
-            <Text as="caption">With SmartThings</Text>
-            <Text as="title">Your home speaks you</Text>
+            <Text as="caption">{LANDING_DATA.caption}</Text>
+            <Text as="title">{LANDING_DATA.title}</Text>
             <Text>
               Select a room below to explore how SmartThings app seamlessly
               <br />
@@ -163,6 +177,7 @@ const Landing = () => {
         </Text>
       </Modal>
     </section>
+    </AppLayout>
   );
 };
 

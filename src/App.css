@@ -36,4 +36,12 @@
 
 body {
   font-family: 'SamsungSharpSans', sans-serif;
+  overflow: hidden;
+}
+
+.video-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
