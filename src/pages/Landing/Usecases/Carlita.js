@@ -8,12 +8,16 @@ import secondVideo from '../../../assets/images/Usecases/carlita/Carlita_second_
 import Text from '../../../components/UI/Text/Text';
 import HotspotGif from '../../../components/Hotspot/Hotspot';
 import Modal from '../../../components/UI/Modal/Modal';
+import AppLayout from '../../../components/AppLayout';
+import Button from '../../../components/UI/Button/Button';
+import { baseImagePath } from '../../../utility/utility';
 
 function Carlita() {
   const [showBackground, setShowBackground] = useState(false);
   const [showText, setShowText] = useState(false);
   const [playSecondVideo, setPlaySecondVideo] = useState(false);
   const [showHotspots, setShowHotspots] = useState(false);
+  const [isModal, setismodal] = useState(true);
 
   const handleVideoEnd = () => {
     setShowBackground(true);
@@ -33,7 +37,12 @@ function Carlita() {
     console.log(`${hotspot} hotspot clicked`);
   };
 
+  const replyvideo = () => {
+    setShowText(false);
+    setPlaySecondVideo(true);
+  }
   return (
+    <AppLayout>
     <div className="h-screen w-screen relative">
       {!showBackground ? (
         <VideoPlayer
@@ -85,16 +94,44 @@ function Carlita() {
                 className="bg-cover bg-center h-full w-full"
                 style={{ backgroundImage: `url(${second_bg})` }}
               >
-                <Modal show={true}>
+                <Modal show={isModal}  onClose={() => setismodal(!isModal)}>
+                  <div className='py-4 px-4 flex justify-center items-center'>
+                <img
+                 src={baseImagePath('Icon-LP-SmartthingsLogo.png')}
+                alt="SmartThings"
+                className="w-9 h-9 rounded-full"
+                />
+                </div>
                   <img
                     className="mx-auto"
                     src={UpArrow}
                     alt={'Arrow'}
                   />
-                  <Text>
-                    Select a room on this page to see how SmartThings routines
-                    help bring your home to life
+                  <div className='py-2 px-2 flex justify-center items-center'>
+                  <Text className="font-bold text-center">
+                    Learn more about health routines by 
+                    <br/>
+                    clicking on each highlighted hotspot
                   </Text>
+                  </div>
+                  <div className='py-4 px-4 flex justify-center items-center'>
+                  <Button
+                   title="Continue"
+                   onClick={() => setismodal(!isModal)}
+                   //onClick={navigateApp}
+                  />
+                  </div>
+                  <hr className='border-bottom: 1px solid black w-full padding: 0 10px 0 10px'/>
+                  <div className='py-4 px-4 flex justify-center items-center'>
+                     
+                     </div>
+                     <Text className="font-bold text-center">
+                      Want to watch that again? Replay below.
+                    </Text>
+                    <Button
+                     title="Replay"
+                     onClick={() => replyvideo()}
+                  />
                 </Modal>
                 <div
                   className="absolute"
@@ -137,6 +174,7 @@ function Carlita() {
         </div>
       )}
     </div>
+    </AppLayout>
   );
 }
 

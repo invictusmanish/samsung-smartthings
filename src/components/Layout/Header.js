@@ -13,11 +13,32 @@ import {
 import { routes } from '../../utility/constant';
 import { baseImagePath } from '../../utility/utility';
 import Button from '../UI/Button/Button';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Modal from '../UI/Modal/Modal';
 
 function Header() {
   const [isModal, setismodal] = useState(false);
+  const [mobileOS, setMobileOS] = useState(null);
+  const getMobileOperatingSystem = ()  => {
+  const  userAgent  =  navigator.userAgent || window.opera;
+    if(/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      return  'IOS';
+    }
+
+    if(/android/i.test(userAgent)) {
+      return  'Andriod';
+    }
+    return 'unknown';
+  }
+
+  useEffect(() => {
+    const os = getMobileOperatingSystem();
+    setMobileOS(os);
+  },[])
+  
+  const navigateApp = () => {
+    mobileOS =='IOS' ?  window.open('https://apps.apple.com/us/app/smartthings/id1222822904', "_blank") : window.open('https://play.google.com/store/apps/details?id=com.samsung.android.oneconnect&hl=en_US&pli=1', "_blank");
+  };
   const exploreOptions = [
     {
       content: (
@@ -34,38 +55,12 @@ function Header() {
     {
       content: (
         <div className="flex justify-center items-center mb-5 gap-6 lg:hidden">
-          <div>
-            <a
-              href={
-                'https://play.google.com/store/apps/details?id=com.samsung.android.oneconnect&hl=en_US&pli=1'
-              }
-              target="_blank"
-              rel="noreferrer"
-              className="cursor-pointer"
-            >
-              <img
-                className="mx-auto"
-                src={baseImagePath(
-                  'dropdown/Icon-DownloadApp-Googleplay-D.png',
-                )}
-                alt="Play Store"
-              />
-            </a>
-          </div>
-          <div>
-            <a
-              href={'https://apps.apple.com/us/app/smartthings/id1222822904'}
-              target="_blank"
-              rel="noreferrer"
-              className="cursor-pointer"
-            >
-              <img
-                className="mx-auto"
-                src={baseImagePath('dropdown/Icon-DownloadApp-Appstore-D.png')}
-                alt="App Store"
-              />
-            </a>
-          </div>
+          <div>          
+               <Button
+               title="Download App   &#x2197;"
+               onClick={navigateApp}
+                />
+          </div>        
         </div>
       ),
     },
