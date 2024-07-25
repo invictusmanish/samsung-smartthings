@@ -10,12 +10,12 @@ const LandingRoom = ({ image, title, buttonColor, hoverImage, navigateTo }) => {
           <img
             src={baseImagePath(image)}
             alt={title}
-            className="opacity-100 w-10/12 object-cover col-start-1 row-start-1 group-hover:opacity-30"
+            className="opacity-100 object-cover col-start-1 row-start-1 group-hover:opacity-30"
           />
           <img
             src={baseImagePath(hoverImage)}
             alt={title}
-            className="opacity-0 w-10/12 object-cover col-start-1 row-start-1 group-hover:opacity-80"
+            className="opacity-0 object-cover col-start-1 row-start-1 group-hover:opacity-80"
           />
         </div>
         <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 -top-8 -left-2/4 group-hover:opacity-0 transition-opacity duration-300">

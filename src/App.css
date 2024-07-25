@@ -37,6 +37,9 @@
 body {
   font-family: 'SamsungSharpSans', sans-serif;
   overflow: hidden;
+  background-image: url('./assets/images/landing-page/LP-Background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .video-container {

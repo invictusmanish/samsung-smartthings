@@ -74,13 +74,13 @@ const Landing = () => {
     return (
       <AppLayout isShowHeader={true}>
         <section>
-          <div className="bg-hero hidden lg:block video-container">
+          <div className="hidden lg:block video-container">
             <VideoPlayer
               videoSrc={desktopIntroVideo}
               onVideoEnd={handleVideoEnd}
             />
           </div>
-          <div className="lg:hidden bg-mobile-hero h-screen video-container">
+          <div className="lg:hidden h-screen video-container">
             <VideoPlayer
               videoSrc={mobileIntroVideo}
               onVideoEnd={handleVideoEnd}
@@ -93,7 +93,7 @@ const Landing = () => {
   return (
     <AppLayout>
       <section>
-        <div className="lg:hidden bg-mobile-hero h-screen">
+        <div className="lg:hidden h-screen">
           <div className="text-center max-w-screen-sm mx-auto py-3">
             <Text
               as="custom"
@@ -111,7 +111,7 @@ const Landing = () => {
           </div>
           <Slider items={items} />
         </div>
-        <div className="bg-hero h-screen hidden lg:block">
+        <div className="h-screen hidden lg:block">
           <div className="pb-4 pt-8">
             <div className="text-center max-w-screen-sm mx-auto">
               <Text as="caption">{LANDING_DATA.caption}</Text>
