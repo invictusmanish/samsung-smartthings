@@ -26,7 +26,7 @@ import UpArrow from '../../assets/images/icons/up-arrow.svg';
 import AppLayout from '../../components/AppLayout';
 
 const Landing = () => {
-  const [showBackground, setShowBackground] = useState(false);
+  const [showBackground, setShowBackground] = useState(true);
 
   const handleVideoEnd = () => {
     console.log('bg', showBackground);
@@ -36,37 +36,37 @@ const Landing = () => {
     <LandingRoom
       key="aisha"
       {...AISHA_DATA_MOB}
-      className="bg-[rgba(82,193,186,0.80)]"
+      buttonColor="bg-[rgba(82,193,186,0.80)]"
       navigateTo={routes.USE_CASE_AISHA}
     />,
     <LandingRoom
       key="carlita"
       {...CARLITA_DATA_MOB}
-      className="bg-[rgba(222,88,9,0.80)]"
+      buttonColor="bg-[rgba(222,88,9,0.80)]"
       navigateTo={routes.USE_CASE_CARLITA}
     />,
     <LandingRoom
       key="eddie"
       {...EDDIE_DATA_MOB}
-      className="bg-[rgba(134,25,90,0.80)]"
+      buttonColor="bg-[rgba(134,25,90,0.80)]"
       navigateTo={routes.USE_CASE_EDDIE}
     />,
     <LandingRoom
       key="malik"
       {...MALIK_DATA_MOB}
-      className="bg-[rgba(167,224,181,0.80)]"
+      buttonColor="bg-[rgba(167,224,181,0.80)]"
       navigateTo={routes.USE_CASE_MALIK}
     />,
     <LandingRoom
       key="eric"
       {...ERIC_DATA_MOB}
-      className="bg-[rgba(135,156,129,0.80)]"
+      buttonColor="bg-[rgba(135,156,129,0.80)]"
       navigateTo={routes.USE_CASE_ERIC}
     />,
     <LandingRoom
       key="fran"
       {...FRAN_DATA_MOB}
-      className="bg-[rgba(93,171,225,0.80)]"
+      buttonColor="bg-[rgba(93,171,225,0.80)]"
       navigateTo={routes.USE_CASE_FRAN}
     />,
   ];
@@ -126,37 +126,37 @@ const Landing = () => {
               <LandingRoom
                 key="aisha"
                 {...AISHA_DATA}
-                className="bg-[rgba(82,193,186,0.80)]"
+                buttonColor="bg-[rgba(82,193,186,0.80)]"
                 navigateTo={routes.USE_CASE_AISHA}
               />
               <LandingRoom
                 key="eddie"
                 {...EDDIE_DATA}
-                className="bg-[rgba(134,25,90,0.80)]"
+                buttonColor="bg-[rgba(134,25,90,0.80)]"
                 navigateTo={routes.USE_CASE_EDDIE}
               />
               <LandingRoom
                 key="eric"
                 {...ERIC_DATA}
-                className="bg-[rgba(135,156,129,0.80)]"
+                buttonColor="bg-[rgba(135,156,129,0.80)]"
                 navigateTo={routes.USE_CASE_ERIC}
               />
               <LandingRoom
                 key="carlita"
                 {...CARLITA_DATA}
-                className="bg-[rgba(222,88,9,0.80)]"
+                buttonColor="bg-[rgba(222,88,9,0.80)]"
                 navigateTo={routes.USE_CASE_CARLITA}
               />
               <LandingRoom
                 key="malik"
                 {...MALIK_DATA}
-                className="bg-[rgba(167,224,181,0.80)]"
+                buttonColor="bg-[rgba(167,224,181,0.80)]"
                 navigateTo={routes.USE_CASE_MALIK}
               />
               <LandingRoom
                 key="fran"
                 {...FRAN_DATA}
-                className="bg-[rgba(93,171,225,0.80)]"
+                buttonColor="bg-[rgba(93,171,225,0.80)]"
                 navigateTo={routes.USE_CASE_FRAN}
               />
             </div>
