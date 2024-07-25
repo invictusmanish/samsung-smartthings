@@ -52,7 +52,7 @@ web_modules/
 .npm
 
 # eslint cache
-.eslintcache
+.eslintcache/
 
 .DS_Store
 
