@@ -2,13 +2,15 @@ const Text = (props) => {
   const className = props.className ? props.className : '';
   if (props.as === 'title') {
     return (
-      <p className={`font-extrabold text-4xl px-5 pb-2 ${className}`}>
+      <p className={`font-extrabold text-[48px] px-5 ${className}`}>
         {props.children}
       </p>
     );
   } else if (props.as === 'caption') {
     return (
-      <p className={`font-semibold text-lg px-5 ${className}`}>
+      <p
+        className={`font-semibold text-[16px] px-5 leading-[17px] ${className}`}
+      >
         {props.children}
       </p>
     );
@@ -23,7 +25,11 @@ const Text = (props) => {
   } else if (props.as === 'custom') {
     return <p className={`px-2 ${className}`}>{props.children}</p>;
   } else {
-    return <p className={`text-sm px-5 pb-4 ${className}`}>{props.children}</p>;
+    return (
+      <p className={`text-[16px] px-5 pb-4 leading-[28px] ${className}`}>
+        {props.children}
+      </p>
+    );
   }
 };
 

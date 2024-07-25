@@ -19,25 +19,33 @@ import Modal from '../UI/Modal/Modal';
 function Header() {
   const [isModal, setismodal] = useState(false);
   const [mobileOS, setMobileOS] = useState(null);
-  const getMobileOperatingSystem = ()  => {
-  const  userAgent  =  navigator.userAgent || window.opera;
-    if(/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      return  'IOS';
+  const getMobileOperatingSystem = () => {
+    const userAgent = navigator.userAgent || window.opera;
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      return 'IOS';
     }
 
-    if(/android/i.test(userAgent)) {
-      return  'Andriod';
+    if (/android/i.test(userAgent)) {
+      return 'Andriod';
     }
     return 'unknown';
-  }
+  };
 
   useEffect(() => {
     const os = getMobileOperatingSystem();
     setMobileOS(os);
-  },[])
-  
+  }, []);
+
   const navigateApp = () => {
-    mobileOS =='IOS' ?  window.open('https://apps.apple.com/us/app/smartthings/id1222822904', "_blank") : window.open('https://play.google.com/store/apps/details?id=com.samsung.android.oneconnect&hl=en_US&pli=1', "_blank");
+    mobileOS == 'IOS'
+      ? window.open(
+          'https://apps.apple.com/us/app/smartthings/id1222822904',
+          '_blank',
+        )
+      : window.open(
+          'https://play.google.com/store/apps/details?id=com.samsung.android.oneconnect&hl=en_US&pli=1',
+          '_blank',
+        );
   };
   const exploreOptions = [
     {
@@ -55,12 +63,12 @@ function Header() {
     {
       content: (
         <div className="flex justify-center items-center mb-5 gap-6 lg:hidden">
-          <div>          
-               <Button
-               title="Download App   &#x2197;"
-               onClick={navigateApp}
-                />
-          </div>        
+          <div>
+            <Button
+              title="Download App   &#x2197;"
+              onClick={navigateApp}
+            />
+          </div>
         </div>
       ),
     },
@@ -119,7 +127,7 @@ function Header() {
     },
   ];
   return (
-    <header className="bg-white py-4 px-4 flex justify-between items-center">
+    <header className="bg-white h-[65px] px-6 flex justify-between items-center">
       <NavLink
         to={'/'}
         className={`flex items-center`}

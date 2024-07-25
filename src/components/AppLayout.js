@@ -1,13 +1,9 @@
 import Header from './Layout/Header';
 
-const AppLayout = ({ isShowHeader = true, children }) => {
+const AppLayout = ({ children }) => {
   return (
     <>
-      {isShowHeader && (
-        <div className="relative z-10">
-          <Header />
-        </div>
-      )}
+      <Header />
       <main>{children}</main>
     </>
   );

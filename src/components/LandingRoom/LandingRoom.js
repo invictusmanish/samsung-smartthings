@@ -2,23 +2,32 @@ import { baseImagePath } from '../../utility/utility';
 import HotspotGif from '../Hotspot/Hotspot';
 import Button from '../UI/Button/Button';
 
-const LandingRoom = ({ image, title, buttonColor, hoverImage, navigateTo }) => {
+const LandingRoom = ({
+  image,
+  title,
+  buttonColor,
+  hoverImage,
+  navigateTo,
+  className,
+}) => {
   return (
     <>
-      <div className="relative group">
+      <div className={`relative group ${className}`}>
         <div className=" relative image-container grid grid-cols-1 grid-rows-1">
           <img
             src={baseImagePath(image)}
             alt={title}
             className="opacity-100 object-cover col-start-1 row-start-1 group-hover:opacity-30"
           />
-          <img
-            src={baseImagePath(hoverImage)}
-            alt={title}
-            className="opacity-0 object-cover col-start-1 row-start-1 group-hover:opacity-80"
-          />
+          {hoverImage && (
+            <img
+              src={baseImagePath(hoverImage)}
+              alt={title}
+              className="opacity-0 object-cover col-start-1 row-start-1 group-hover:opacity-80"
+            />
+          )}
         </div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 -top-8 -left-2/4 group-hover:opacity-0 transition-opacity duration-300">
+        <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 -top-12 left-0 group-hover:opacity-0 transition-opacity duration-300">
           <HotspotGif />
           <Button
             btnTheme="custom"
@@ -26,7 +35,7 @@ const LandingRoom = ({ image, title, buttonColor, hoverImage, navigateTo }) => {
             className={`text-white ${buttonColor} py-1 font-bold text-base px-4 opacity-80`}
           />
         </div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 -left-2/4 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0  left-0 group-hover:opacity-100 transition-opacity duration-300">
           <Button
             btnTheme="custom"
             title={'Explore Room'}

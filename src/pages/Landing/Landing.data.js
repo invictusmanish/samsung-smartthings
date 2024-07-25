@@ -6,73 +6,73 @@ export const LANDING_DATA = {
 };
 
 export const CARLITA_DATA = {
-  image: 'landing-page/IMG-Carlita-D.png',
+  image: 'landing-page/LP-Carlita-Isometric-357x313-D.png',
   title: 'Self Care',
-  hoverImage: 'landing-page/LP-Carlita-Isometric-Hover-571x322-D.png',
+  hoverImage: 'landing-page/LP-Carlita-Isometric-Hover-357x313-D.png',
 };
 
 export const EDDIE_DATA = {
-  image: 'landing-page/IMG-Eddie-D.png',
+  image: 'landing-page/LP-Eddie-Isometric-357x313-D.png',
   title: 'Party Time',
-  hoverImage: 'landing-page/LP-Eddie-Isometric-Hover-571x322-D.png',
+  hoverImage: 'landing-page/LP-Eddie-Isometric-Hover-357x313-D.png',
 };
 
 export const AISHA_DATA = {
-  image: 'landing-page/IMG-Aisha-D.png',
+  image: 'landing-page/LP-Aisha-Isometric-357x313-D.png',
   title: 'Hustle From Home',
-  hoverImage: 'landing-page/LP-Aisha-Isometric-Hover-571x322-D.png',
+  hoverImage: 'landing-page/LP-Aisha-Isometric-Hover-357x313-D.png',
 };
 
 export const MALIK_DATA = {
-  image: 'landing-page/IMG-Malik-D.png',
+  image: 'landing-page/LP-Malik-Isometric-357x313-D.png',
   title: 'Meal Prep',
-  hoverImage: 'landing-page/LP-Malik-Isometric-Hover-571x322-D.png',
+  hoverImage: 'landing-page/LP-Malik-Isometric-Hover-357x313-D.png',
 };
 
 export const ERIC_DATA = {
-  image: 'landing-page/IMG-Eric-D.png',
+  image: 'landing-page/LP-Eric-Isometric-357x313-D.png',
   title: 'Optimize Energy',
-  hoverImage: 'landing-page/LP-Eric-Isometric-Hover-571x322-D.png',
+  hoverImage: 'landing-page/LP-Eric-Isometric-Hover-357x313-D.png',
 };
 
 export const FRAN_DATA = {
-  image: 'landing-page/IMG-Fran-D.png',
+  image: 'landing-page/LP-Fran-Isometric-357x313-D.png',
   title: 'Family Care',
-  hoverImage: 'landing-page/LP-Fran-Isometric-Hover-571x322-D.png',
+  hoverImage: 'landing-page/LP-Fran-Isometric-Hover-357x313-D.png',
 };
 
 export const CARLITA_DATA_MOB = {
-  image: 'landing-page/mobile/Carlita-Isometric-679x375-Mo.png',
+  image: 'landing-page/Mobile/Carlita-Isometric-679x375-Mo.png',
   title: 'Self Care',
-  hoverImage: 'landing-page/LP-Carlita-Isometric-Hover-571x322-D.png',
+  // hoverImage: 'landing-page/LP-Carlita-Isometric-Hover-571x322-D.png',
 };
 
 export const EDDIE_DATA_MOB = {
-  image: 'landing-page/mobile/Eddie-Isometric-679x375-Mo.png',
+  image: 'landing-page/Mobile/Eddie-Isometric-679x375-Mo.png',
   title: 'Party Time',
-  hoverImage: 'landing-page/LP-Eddie-Isometric-Hover-571x322-D.png',
+  // hoverImage: 'landing-page/LP-Eddie-Isometric-Hover-571x322-D.png',
 };
 
 export const AISHA_DATA_MOB = {
-  image: 'landing-page/mobile/Aisha-Isometric-679x375-Mo.png',
+  image: 'landing-page/Mobile/Aisha-Isometric-679x375-Mo.png',
   title: 'Hustle From Home',
-  hoverImage: 'landing-page/LP-Aisha-Isometric-Hover-571x322-D.png',
+  // hoverImage: 'landing-page/LP-Aisha-Isometric-Hover-571x322-D.png',
 };
 
 export const MALIK_DATA_MOB = {
-  image: 'landing-page/mobile/Malik-Isometric-679x375-Mo.png',
+  image: 'landing-page/Mobile/Malik-Isometric-679x375-Mo.png',
   title: 'Meal Prep',
-  hoverImage: 'landing-page/LP-Malik-Isometric-Hover-571x322-D.png',
+  // hoverImage: 'landing-page/LP-Malik-Isometric-Hover-571x322-D.png',
 };
 
 export const ERIC_DATA_MOB = {
-  image: 'landing-page/mobile/Eric-Isometric-679x375-Mo.png',
+  image: 'landing-page/Mobile/Eric-Isometric-679x375-Mo.png',
   title: 'Optimize Energy',
-  hoverImage: 'landing-page/LP-Eric-Isometric-Hover-571x322-D.png',
+  // hoverImage: 'landing-page/LP-Eric-Isometric-Hover-571x322-D.png',
 };
 
 export const FRAN_DATA_MOB = {
-  image: 'landing-page/mobile/Fran-Isometric-679x375-Mo.png',
+  image: 'landing-page/Mobile/Fran-Isometric-679x375-Mo.png',
   title: 'Family Care',
-  hoverImage: 'landing-page/LP-Fran-Isometric-Hover-571x322-D.png',
+  // hoverImage: 'landing-page/LP-Fran-Isometric-Hover-571x322-D.png',
 };
