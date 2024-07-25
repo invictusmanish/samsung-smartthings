@@ -27,7 +27,7 @@ const LandingRoom = ({
             />
           )}
         </div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center opacity-100 -top-12 left-0 group-hover:opacity-0 transition-opacity duration-300">
+        <div className="absolute inset-0 flex flex-col max-h-max items-center justify-center opacity-100 top-20 left-0 group-hover:opacity-0 transition-opacity duration-300">
           <HotspotGif />
           <Button
             btnTheme="custom"
@@ -35,7 +35,7 @@ const LandingRoom = ({
             className={`text-white ${buttonColor} py-1 font-bold text-base px-4 opacity-80`}
           />
         </div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0  left-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute inset-0 max-h-max flex flex-col items-center justify-center opacity-0 top-32 left-0 group-hover:opacity-100 transition-opacity duration-300">
           <Button
             btnTheme="custom"
             title={'Explore Room'}
