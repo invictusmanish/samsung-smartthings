@@ -13,7 +13,10 @@ const Dropdown = ({
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
+        if (event.target.id !== 'dropdown-btn') {
+          setIsOpen(false);
+        }
+        // setIsOpen(false);
       }
     };
 
@@ -37,6 +40,7 @@ const Dropdown = ({
       {/* Dropdown button */}
       <button
         onClick={toggleDropdown}
+        id="dropdown-btn"
         className={`bg-black font-bold text-sm font-SamsungOne text-white py-2.5 px-6 rounded-full shadow-lg hover:bg-[#555] hover:text-[#eee] ${className ? className : ''}`}
       >
         {title ? title : 'Select an option'}

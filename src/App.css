@@ -45,3 +45,10 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
+@media screen and (min-width: 1440px) {
+  body {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
