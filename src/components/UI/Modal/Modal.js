@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { baseImagePath } from '../../../utility/utility';
 
 const Modal = (props) => {
   const [showModal, setShowModal] = useState(props.show);
@@ -19,6 +20,22 @@ const Modal = (props) => {
       }`}
     >
       <div className="bg-white rounded-lg shadow-lg max-w-md w-full">
+        <div className='flex justify-between items-center'>
+          <div className='flex ps-4 pt-4'>
+            {props.isHeader && (
+              <>
+              <span> <img
+          src={baseImagePath('Icon-LP-SmartthingsLogo.png')}
+          alt="SmartThings"
+          className="w-9 h-9 rounded-full"
+        /></span>
+              <span className='ms-2'>
+                <p className='text-sm'>Works with</p>
+                <p className='text-base font-bold'>Samsung SmartThings</p>
+              </span>
+              </>
+            )}
+          </div>
         <div className="p-2 md:p-3 flex justify-end">
           <button
             onClick={handleClose}
@@ -37,6 +54,7 @@ const Modal = (props) => {
               />
             </svg>
           </button>
+        </div>
         </div>
         <div className="p-4 md:p-5 text-center">{props.children}</div>
       </div>

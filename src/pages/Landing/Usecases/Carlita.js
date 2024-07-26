@@ -11,13 +11,15 @@ import Modal from '../../../components/UI/Modal/Modal';
 import AppLayout from '../../../components/AppLayout';
 import Button from '../../../components/UI/Button/Button';
 import { baseImagePath } from '../../../utility/utility';
+import { CARLITA_DATA_SAMRTPLUG }  from '../../../components/Layout/Carlita.data';
 
 function Carlita() {
   const [showBackground, setShowBackground] = useState(false);
   const [showText, setShowText] = useState(false);
   const [playSecondVideo, setPlaySecondVideo] = useState(false);
   const [showHotspots, setShowHotspots] = useState(false);
-  const [isModal, setismodal] = useState(true);
+  const [isModal, setismodal] = useState(false);
+  const [isHotspot, setIsHospot] = useState(false);
 
   const handleVideoEnd = () => {
     setShowBackground(true);
@@ -31,15 +33,19 @@ function Carlita() {
   const handleSecondVideoEnd = () => {
     setPlaySecondVideo(false);
     setShowHotspots(true);
+    setismodal(true);
   };
 
   const handleHotspotClick = (hotspot) => {
-    console.log(`${hotspot} hotspot clicked`);
+    setismodal(true);
+    setIsHospot(true);
+    console.log(`${hotspot} hotspot clicked`);    
   };
 
   const replyvideo = () => {
     setShowText(false);
     setPlaySecondVideo(true);
+    setismodal(true);
   }
   return (
     <AppLayout>
@@ -94,45 +100,6 @@ function Carlita() {
                 className="bg-cover bg-center h-full w-full"
                 style={{ backgroundImage: `url(${second_bg})` }}
               >
-                <Modal show={isModal}  onClose={() => setismodal(!isModal)}>
-                  <div className='py-4 px-4 flex justify-center items-center'>
-                <img
-                 src={baseImagePath('Icon-LP-SmartthingsLogo.png')}
-                alt="SmartThings"
-                className="w-9 h-9 rounded-full"
-                />
-                </div>
-                  <img
-                    className="mx-auto"
-                    src={UpArrow}
-                    alt={'Arrow'}
-                  />
-                  <div className='py-2 px-2 flex justify-center items-center'>
-                  <Text className="font-bold text-center">
-                    Learn more about health routines by 
-                    <br/>
-                    clicking on each highlighted hotspot
-                  </Text>
-                  </div>
-                  <div className='py-4 px-4 flex justify-center items-center'>
-                  <Button
-                   title="Continue"
-                   onClick={() => setismodal(!isModal)}
-                   //onClick={navigateApp}
-                  />
-                  </div>
-                  <hr className='border-bottom: 1px solid black w-full padding: 0 10px 0 10px'/>
-                  <div className='py-4 px-4 flex justify-center items-center'>
-                     
-                     </div>
-                     <Text className="font-bold text-center">
-                      Want to watch that again? Replay below.
-                    </Text>
-                    <Button
-                     title="Replay"
-                     onClick={() => replyvideo()}
-                  />
-                </Modal>
                 <div
                   className="absolute"
                   style={{ top: '63%', left: '41%' }}
@@ -174,6 +141,65 @@ function Carlita() {
         </div>
       )}
     </div>
+    <Modal show={isModal}  onClose={() => { 
+       setIsHospot(false);
+       setismodal(!isModal);}}
+       isHeader={isHotspot}
+       >
+          {isHotspot ? (<div> 
+        <div><Text className="font-bold text-center">{CARLITA_DATA_SAMRTPLUG.title}</Text></div>
+        <div><Text as="title">{CARLITA_DATA_SAMRTPLUG.caption}</Text></div>
+        <div className='py-4 px-4 flex justify-center items-center'>
+        <img 
+                 src={
+                  CARLITA_DATA_SAMRTPLUG.image}
+                  alt="Smart Plug"
+                />
+         </div>
+        <div><Text className="font-sans text-center">{CARLITA_DATA_SAMRTPLUG.description}</Text></div>
+        </div>  ) 
+              : ( <>
+              <div className='py-4 px-4 flex justify-center items-center'>
+                <img
+                 src={baseImagePath('Icon-LP-SmartthingsLogo.png')}
+                alt="SmartThings"
+                className="w-9 h-9 rounded-full"
+                />
+                </div>
+                  <img
+                    className="mx-auto"
+                    src={UpArrow}
+                    alt={'Arrow'}
+                  />
+                  <div className='py-2 px-2 flex justify-center items-center'>
+                  <Text className="font-bold text-center">
+                    Learn more about health routines by 
+                    <br/>
+                    clicking on each highlighted hotspot
+                  </Text>
+                  </div>
+                  <div className='py-4 px-4 flex justify-center items-center'>
+                  <Button
+                   title="Continue"
+                   onClick={() => setismodal(!isModal)}
+                   //onClick={navigateApp}
+                  />
+                  </div>
+                  <hr className='border-bottom: 1px solid black w-full padding: 0 10px 0 10px'/>
+                  <div className='py-4 px-4 flex justify-center items-center'>
+                     
+                     </div>
+                     <Text className="font-bold text-center">
+                      Want to watch that again? Replay below.
+                    </Text>
+                    <Button
+                     title="Replay"
+                     onClick={() => replyvideo()}
+                  />
+                  </>
+              )
+            }
+                </Modal>
     </AppLayout>
   );
 }
