@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { baseImagePath } from '../../../utility/utility';
+//import { baseImagePath } from '../../../utility/utility';
+import modelhederImage  from '../../../assets/images/Usecases/carlita/Icon-Modal-WorkswithSmartThings-D.png';
 
 const Modal = (props) => {
   const [showModal, setShowModal] = useState(props.show);
@@ -25,14 +26,9 @@ const Modal = (props) => {
             {props.isHeader && (
               <>
               <span> <img
-          src={baseImagePath('Icon-LP-SmartthingsLogo.png')}
+          src = { modelhederImage }
           alt="SmartThings"
-          className="w-9 h-9 rounded-full"
         /></span>
-              <span className='ms-2'>
-                <p className='text-sm'>Works with</p>
-                <p className='text-base font-bold'>Samsung SmartThings</p>
-              </span>
               </>
             )}
           </div>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import VideoPlayer from '../../../components/UI/VideoPlayer/VideoPlayer';
-import UpArrow from '../../../assets/images/icons/up-arrow.svg';
+import UpArrow from '../../../assets/images/Usecases/carlita/Icon-clickSTlogo-D.png';
 import backgroundImage from '../../../assets/images/Usecases/carlita/Carlita-BG.jpg';
 import second_bg from '../../../assets/images/Usecases/carlita/carlita_second.png';
 import introVideo from '../../../assets/images/Usecases/carlita/Carlita_Intro.mp4';
@@ -10,8 +10,9 @@ import HotspotGif from '../../../components/Hotspot/Hotspot';
 import Modal from '../../../components/UI/Modal/Modal';
 import AppLayout from '../../../components/AppLayout';
 import Button from '../../../components/UI/Button/Button';
-import { baseImagePath } from '../../../utility/utility';
-import { CARLITA_DATA_SAMRTPLUG }  from '../../../components/Layout/Carlita.data';
+//import { baseImagePath } from '../../../utility/utility';
+import { CARLITA_DATA_SAMRTPLUG, CARLITA_DATA_SERO }  from '../../../components/Layout/Carlita.data';
+import Switch from "react-switch";
 
 function Carlita() {
   const [showBackground, setShowBackground] = useState(false);
@@ -20,6 +21,8 @@ function Carlita() {
   const [showHotspots, setShowHotspots] = useState(false);
   const [isModal, setismodal] = useState(false);
   const [isHotspot, setIsHospot] = useState(false);
+  const [hotSpotValue, setHotSpotValue] = useState(null);
+  const [isToggled, setIsToggled]  = useState(false);
 
   const handleVideoEnd = () => {
     setShowBackground(true);
@@ -39,6 +42,7 @@ function Carlita() {
   const handleHotspotClick = (hotspot) => {
     setismodal(true);
     setIsHospot(true);
+    setHotSpotValue(hotspot)
     console.log(`${hotspot} hotspot clicked`);    
   };
 
@@ -46,6 +50,11 @@ function Carlita() {
     setShowText(false);
     setPlaySecondVideo(true);
     setismodal(true);
+  }
+
+  const handleToggle = () => {
+    setIsToggled(!isToggled);
+    console.log(isToggled);
   }
   return (
     <AppLayout>
@@ -146,7 +155,7 @@ function Carlita() {
        setismodal(!isModal);}}
        isHeader={isHotspot}
        >
-          {isHotspot ? (<div> 
+        { isHotspot  && hotSpotValue == 'Smart Plug' ? (<div> 
         <div><Text className="font-bold text-center">{CARLITA_DATA_SAMRTPLUG.title}</Text></div>
         <div><Text as="title">{CARLITA_DATA_SAMRTPLUG.caption}</Text></div>
         <div className='py-4 px-4 flex justify-center items-center'>
@@ -157,19 +166,31 @@ function Carlita() {
                 />
          </div>
         <div><Text className="font-sans text-center">{CARLITA_DATA_SAMRTPLUG.description}</Text></div>
-        </div>  ) 
-              : ( <>
+        </div>  ) :  hotSpotValue == 'Sero' ? 
+           (<div> 
+            <div><Text className="font-bold text-center">{CARLITA_DATA_SERO.title}</Text></div>
+            <div><Text as="title">{CARLITA_DATA_SERO.caption}</Text></div>
+            <div className='py-0 px-2'>
+            <ul>
+            {CARLITA_DATA_SERO.description.map((item, index) => <li key={index}><Text className="text-left">{`\u2981 ${item}`}</Text></li>)}
+            </ul>
+             </div>
+             <div className="item-left">
+
+             <div className='py-2 flex justify-center items-center'>
+              <Text className="font-bold">{CARLITA_DATA_SERO.footer}</Text>
+              <Switch className='mt-auto pb-4' height={20} width={40} onChange={handleToggle} checked={ isToggled ? true: false} uncheckedIcon />
+             </div>
+             </div> 
+            </div>  ) 
+              :  !isHotspot  ? (  <>  
               <div className='py-4 px-4 flex justify-center items-center'>
-                <img
-                 src={baseImagePath('Icon-LP-SmartthingsLogo.png')}
-                alt="SmartThings"
-                className="w-9 h-9 rounded-full"
-                />
                 </div>
                   <img
                     className="mx-auto"
                     src={UpArrow}
                     alt={'Arrow'}
+                    width={45}
                   />
                   <div className='py-2 px-2 flex justify-center items-center'>
                   <Text className="font-bold text-center">
@@ -196,9 +217,11 @@ function Carlita() {
                      title="Replay"
                      onClick={() => replyvideo()}
                   />
+              
                   </>
-              )
-            }
+              
+              ) : <></>
+            } 
                 </Modal>
     </AppLayout>
   );
