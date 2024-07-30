@@ -5,13 +5,14 @@ import backgroundImage from '../../../assets/images/Usecases/carlita/Carlita-BG.
 import second_bg from '../../../assets/images/Usecases/carlita/carlita_second.png';
 import introVideo from '../../../assets/images/Usecases/carlita/Carlita_Intro.mp4';
 import secondVideo from '../../../assets/images/Usecases/carlita/Carlita_second_video.mp4';
+import musicFrame from '../../../assets/images/Usecases/carlita/ST_MusicFrame_Video.mp4';
 import Text from '../../../components/UI/Text/Text';
 import HotspotGif from '../../../components/Hotspot/Hotspot';
 import Modal from '../../../components/UI/Modal/Modal';
 import AppLayout from '../../../components/AppLayout';
 import Button from '../../../components/UI/Button/Button';
 //import { baseImagePath } from '../../../utility/utility';
-import { CARLITA_DATA_SAMRTPLUG, CARLITA_DATA_SERO }  from '../../../components/Layout/Carlita.data';
+import { CARLITA_DATA_MUSICFRAME, CARLITA_DATA_SAMRTPLUG, CARLITA_DATA_SERO,CARLITA_DATA_WATCH }  from '../../../components/Layout/Carlita.data';
 import Switch from "react-switch";
 
 function Carlita() {
@@ -23,6 +24,8 @@ function Carlita() {
   const [isHotspot, setIsHospot] = useState(false);
   const [hotSpotValue, setHotSpotValue] = useState(null);
   const [isToggled, setIsToggled]  = useState(false);
+  const [galaxyDescription, setGalaxyDescription]  = useState(CARLITA_DATA_WATCH.galaxyDetails[0]?.description);
+  const [galaxyTitle, setGalaxyTitle]  = useState(CARLITA_DATA_WATCH.galaxyDetails[0]?.title);
 
   const handleVideoEnd = () => {
     setShowBackground(true);
@@ -182,6 +185,46 @@ function Carlita() {
               <Switch className='mt-auto pb-4' height={20} width={40} onChange={handleToggle} checked={ isToggled ? true: false} uncheckedIcon />
              </div>
              </div> 
+            </div>  ) :  hotSpotValue == 'Frame' ? 
+           (<div> 
+            <div><Text className="font-bold text-center text-xs">{CARLITA_DATA_MUSICFRAME.title}</Text></div>
+            <div><Text as="caption">{CARLITA_DATA_MUSICFRAME.caption}</Text></div>
+            <div className='py-4 px-4 grid grid-cols-2 items-center'>
+              <div>               
+              <VideoPlayer
+              videoSrc={musicFrame}
+              onVideoEnd={handleSecondVideoEnd}
+              isVideo = {true}
+                />
+              </div>
+            <div className='ps-8'>
+            <ul>
+            {CARLITA_DATA_MUSICFRAME.description.map((item, index) => <li key={index}><p className="text-xs text-left">{`\u2981 ${item}`}</p></li>)}
+            </ul>
+             </div>
+             </div>
+            </div>  )  :  hotSpotValue == 'Watch' ? 
+           (<div> 
+            <div><Text className="font-bold text-center text-xs">{CARLITA_DATA_WATCH.title}</Text></div>
+            <div>
+              <Text as="subTitle">{galaxyTitle}</Text>            
+              </div>
+            <div className='py-4 px-4 flex justify-center '>    
+            <ul>
+            {galaxyDescription?.map((item, index) => (
+              <li key={index}><p className="text-xs text-left">{`\u2981 ${item}`}</p></li>))}
+            </ul>
+          </div>         
+            <div className='py-4 px-4  flex justify-between'>      
+            {CARLITA_DATA_WATCH.galaxyDetails.map((item, index) => 
+            <img  key={index}
+               src={item?.image}
+               alt="image"  
+               onClick={ () => {setGalaxyDescription(item?.description); setGalaxyTitle(item?.title);}}            
+             />   
+           )}
+             
+            </div>
             </div>  ) 
               :  !isHotspot  ? (  <>  
               <div className='py-4 px-4 flex justify-center items-center'>
