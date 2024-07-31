@@ -2,7 +2,11 @@ import smartPlug  from  '../../assets/images/Usecases/carlita/Carlita-ShopProduc
 import health  from '../../assets/images/Usecases/carlita/Icon-Carlita-Watch6-OverallHealth-D.png';
 import fitness  from '../../assets/images/Usecases/carlita/Icon-Carlita-Watch6-FitnessTracking-D.png';
 import sleep  from '../../assets/images/Usecases/carlita/Icon-Carlita-Watch6-SleepCoaching-D.png';
-import Connectivity  from '../../assets/images/Usecases/carlita/Icon-Carlita-Watch6-Connectivity-D.png';
+import connectivity  from '../../assets/images/Usecases/carlita/Icon-Carlita-Watch6-Connectivity-D.png';
+import watch  from '../../assets/images/Usecases/carlita/Carlita-Modal-Watch6-Frame-D.png';
+import smartthings  from '../../assets/images/Usecases/carlita/Icon-Carlita-Zflip-SmartThingsApp-D.png';
+import samsungHealth  from '../../assets/images/Usecases/carlita/Icon-Carlita-Zflip-SamsungHealth-D.png';
+import smartTrainer  from '../../assets/images/Usecases/carlita/Icon-Carlita-Zflip-AISmartTrainer-D.png';
 
 export const CARLITA_DATA_SAMRTPLUG = {
     image: smartPlug,
@@ -34,11 +38,7 @@ export const CARLITA_DATA_SAMRTPLUG = {
 
   export const CARLITA_DATA_WATCH = {
     title: 'Galaxy Watch6',
-    healthDescription:[
-      'Connects with SmartThings to review your full body composition' ,
-      'Check for any irregular heartbeats',
-      'Set goals for steps,sleep and more'
-    ],
+    watchImage: watch,
     galaxyDetails : [ 
       {
         title:"A comprehensive look",
@@ -66,10 +66,31 @@ export const CARLITA_DATA_SAMRTPLUG = {
         description:["Change the channel,volume  and more on your TV", 
           "Adjust volume, set to silent, and control music playback",
           "Receive and send calls,texts and more"],
-        image: Connectivity
+        image: connectivity
       }
 
 
     ],
-    caption: 'A comprehensive look',
+    
+  };
+  export const CARLITA_DATA_ZFLIP = {
+    title: 'Galaxy Z Flip5',
+    galaxyZFlipDetails : [ 
+      {
+        title:"Tap into helath",
+        description:'The SmartThings app works with your home so you can achieve your helath goals from anywhere. Click an icon below to learn more.' ,
+        image: smartthings
+      },
+      {
+        title:"Chart and track your progress",
+        description:"Check in with Sumsung Health to see your daily steps,calories burned, and other daily health stats",
+        image: samsungHealth
+      },
+      {
+        title:"Achieve perfect form",
+        description:"Use your phone as a personal camera to help monitor and improve your form during workouts.",
+        image: smartTrainer
+      },
+    ],
+    
   };

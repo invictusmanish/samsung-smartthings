@@ -3,7 +3,7 @@ import VideoPlayer from '../../../components/UI/VideoPlayer/VideoPlayer';
 import UpArrow from '../../../assets/images/Usecases/carlita/Icon-clickSTlogo-D.png';
 import backgroundImage from '../../../assets/images/Usecases/carlita/Carlita-BG.jpg';
 import second_bg from '../../../assets/images/Usecases/carlita/carlita_second.png';
-import introVideo from '../../../assets/images/Usecases/carlita/Carlita_Intro.mp4';
+import introVideo from '../../../assets/images/Usecases/carlita/Carlita_Intro.mp4'; 
 import secondVideo from '../../../assets/images/Usecases/carlita/Carlita_second_video.mp4';
 import musicFrame from '../../../assets/images/Usecases/carlita/ST_MusicFrame_Video.mp4';
 import Text from '../../../components/UI/Text/Text';
@@ -12,8 +12,9 @@ import Modal from '../../../components/UI/Modal/Modal';
 import AppLayout from '../../../components/AppLayout';
 import Button from '../../../components/UI/Button/Button';
 //import { baseImagePath } from '../../../utility/utility';
-import { CARLITA_DATA_MUSICFRAME, CARLITA_DATA_SAMRTPLUG, CARLITA_DATA_SERO,CARLITA_DATA_WATCH }  from '../../../components/Layout/Carlita.data';
+import { CARLITA_DATA_MUSICFRAME, CARLITA_DATA_SAMRTPLUG, CARLITA_DATA_SERO,CARLITA_DATA_WATCH,CARLITA_DATA_ZFLIP }  from '../../../components/Layout/Carlita.data';
 import Switch from "react-switch";
+import WatchDial from './WatchDial';
 
 function Carlita() {
   const [showBackground, setShowBackground] = useState(false);
@@ -26,6 +27,8 @@ function Carlita() {
   const [isToggled, setIsToggled]  = useState(false);
   const [galaxyDescription, setGalaxyDescription]  = useState(CARLITA_DATA_WATCH.galaxyDetails[0]?.description);
   const [galaxyTitle, setGalaxyTitle]  = useState(CARLITA_DATA_WATCH.galaxyDetails[0]?.title);
+  const [zFlipDescription, setZflipDescription]  = useState(CARLITA_DATA_ZFLIP.galaxyZFlipDetails[0]?.description);
+  const [zFlipTitle, setZflipTitle]  = useState(CARLITA_DATA_ZFLIP.galaxyZFlipDetails[0]?.title);
 
   const handleVideoEnd = () => {
     setShowBackground(true);
@@ -150,9 +153,10 @@ function Carlita() {
               </div>
             </>
           )}
-        </div>
+        </div>       
       )}
     </div>
+    <div className='flex justify-between items-center relative'>
     <Modal show={isModal}  onClose={() => { 
        setIsHospot(false);
        setismodal(!isModal);}}
@@ -225,6 +229,29 @@ function Carlita() {
            )}
              
             </div>
+            </div>  )  :  hotSpotValue == 'Z Flip' ? 
+           (<div> 
+            <div><Text className="font-bold text-center text-xs">{CARLITA_DATA_ZFLIP.title}</Text></div>
+            <div>
+              <Text as="subTitle">{zFlipTitle}</Text>            
+              </div>
+            <div className='py-4 px-4 flex justify-center '>  
+            <div>
+              <Text >{zFlipDescription}</Text>            
+              </div>  
+          </div>         
+            <div className='py-4 px-4  flex justify-between'>      
+            {CARLITA_DATA_ZFLIP.galaxyZFlipDetails.map((item, index) => 
+            <img  key={index}
+               src={item?.image}
+               alt="image"  
+               onClick={ () => {setZflipDescription(item?.description); setZflipTitle(item?.title);}}                   
+             /> ,
+            
+           )}   
+                    
+            </div>
+            
             </div>  ) 
               :  !isHotspot  ? (  <>  
               <div className='py-4 px-4 flex justify-center items-center'>
@@ -266,6 +293,8 @@ function Carlita() {
               ) : <></>
             } 
                 </Modal>
+                {isModal && hotSpotValue == 'Watch' && <WatchDial></WatchDial>}
+                </div>
     </AppLayout>
   );
 }
