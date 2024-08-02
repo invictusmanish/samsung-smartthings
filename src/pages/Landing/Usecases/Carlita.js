@@ -31,6 +31,8 @@ function Carlita() {
   const [isHotspot, setIsHospot] = useState(false);
   const [hotSpotValue, setHotSpotValue] = useState(null);
   const [isToggled, setIsToggled] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
+
   const [galaxyDescription, setGalaxyDescription] = useState(
     CARLITA_DATA_WATCH.galaxyDetails[0]?.description,
   );
@@ -43,6 +45,11 @@ function Carlita() {
   const [zFlipTitle, setZflipTitle] = useState(
     CARLITA_DATA_ZFLIP.galaxyZFlipDetails[0]?.title,
   );
+  const handleCloseModal = () => {
+    setIsHospot(false);
+    setismodal(false);
+    setShowButtons(true); // Show buttons after the popup is closed
+  };
 
   const handleVideoEnd = () => {
     setShowBackground(true);
@@ -173,10 +180,7 @@ function Carlita() {
       <div className="flex justify-between items-center relative">
         <Modal
           show={isModal}
-          onClose={() => {
-            setIsHospot(false);
-            setismodal(!isModal);
-          }}
+          onClose={handleCloseModal} // Use handleCloseModal function here
           isHeader={isHotspot}
         >
           {isHotspot && hotSpotValue == 'Smart Plug' ? (
@@ -365,30 +369,58 @@ function Carlita() {
         {isModal && hotSpotValue == 'Watch' && <WatchDial></WatchDial>}
       </div>
 
-      <div className="absolute bottom-4 left-[50%] transform -translate-x-1/2 flex items-center space-x-8">
-        <div className="flex items-center space-x-2">
-          <span className="text-black font-SamsungOne font-bold text-sm">
-            Previous room
-          </span>
+      {showButtons && (
+        <div className="absolute bottom-4 left-[50%] transform -translate-x-1/2 flex items-center space-x-8 sm:hidden">
+          <div className="flex items-center space-x-2">
+            <span className="text-black font-SamsungOne font-bold text-sm">
+              Previous room
+            </span>
+            <Button
+              title={<span className="text-xl">&lt;</span>}
+              className="bg-black bg-opacity-50 text-white w-0 h-12 flex items-center justify-center rounded-full"
+            />
+          </div>
           <Button
-            title={<span className="text-xl">&lt;</span>}
-            className="bg-black bg-opacity-50 text-white w-0 h-12 flex items-center justify-center rounded-full"
+            title="Shop products"
+            className="bg-black text-white text-sm py-1.5 px-3 rounded-full w-[138px] h-[32px] flex items-center justify-center"
           />
+          <div className="flex items-center space-x-2">
+            <Button
+              title={<span className="text-xl">&gt;</span>}
+              className="bg-black bg-opacity-50 text-white w-0 h-12 flex items-center justify-center rounded-full"
+            />
+            <span className="text-black font-SamsungOne font-bold text-sm">
+              Next room
+            </span>
+          </div>
         </div>
-        <Button
-          title="Shop products"
-          className="bg-black text-white py-2.5 px-6 rounded-full w-[138px]"
-        />
-        <div className="flex items-center space-x-2">
+      )}
+      {showButtons && (
+        <div className="absolute bottom-4 left-[50%] transform -translate-x-1/2  items-center space-x-8 hidden sm:flex">
+          <div className="flex items-center space-x-2">
+            <span className="text-black font-SamsungOne font-bold text-sm">
+              Previous room
+            </span>
+            <Button
+              title={<span className="text-xl">&lt;</span>}
+              className="bg-black bg-opacity-50 text-white w-0 h-12 flex items-center justify-center rounded-full"
+            />
+          </div>
           <Button
-            title={<span className="text-xl">&gt;</span>}
-            className="bg-black bg-opacity-50 text-white w-0 h-12 flex items-center justify-center rounded-full"
+            title="Shop products"
+            className="bg-black text-white py-2.5 px-6 rounded-full w-[138px]"
           />
-          <span className="text-black font-SamsungOne font-bold text-sm">
-            Next room
-          </span>
+          <div className="flex items-center space-x-2">
+            <Button
+              title={<span className="text-xl">&gt;</span>}
+              className="bg-black bg-opacity-50 text-white w-0 h-12 flex items-center justify-center rounded-full"
+            />
+            <span className="text-black font-SamsungOne font-bold text-sm">
+              Next room
+            </span>
+          </div>
         </div>
-      </div>
+      )}
     </AppLayout>
   );
 }
