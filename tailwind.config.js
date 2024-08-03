@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         hero: "url('/src/assets/images/landing-page/LP-Background.jpg')",
-        "mobile-hero": "url(/src/assets/images/landing-page/mobile/LP-BG.png)"
+        'mobile-hero': 'url(/src/assets/images/landing-page/mobile/LP-BG.png)',
       },
       scale: {
         130: '1.3',
@@ -30,6 +30,8 @@ module.exports = {
         },
       },
       animation: {
+        slideInOut: 'slideInOut 5s forwards',
+        slideInOut: 'slideInOut 5s forwards',
         slideInOut: 'slideInOut 5s forwards',
       },
     },
