@@ -15,6 +15,8 @@ import Button from '../../../components/UI/Button/Button';
 import { CARLITA_DATA_MUSICFRAME, CARLITA_DATA_SAMRTPLUG, CARLITA_DATA_SERO,CARLITA_DATA_WATCH,CARLITA_DATA_ZFLIP }  from '../../../components/Layout/Carlita.data';
 import Switch from "react-switch";
 import WatchDial from './WatchDial';
+import Zflip from './Zflip';
+import carlitaMobileVideo from '../../../assets/images/Usecases/carlita/ST_Carlita_Z_Flip_Desktop_01_SmartThingsApp.mp4'
 
 function Carlita() {
   const [showBackground, setShowBackground] = useState(false);
@@ -225,9 +227,17 @@ function Carlita() {
                src={item?.image}
                alt="image"  
                onClick={ () => {setGalaxyDescription(item?.description); setGalaxyTitle(item?.title);}}            
-             />   
+             />  
+              
            )}
              
+            </div>
+            <div>
+            <div className='flex justify-between'>
+            {CARLITA_DATA_WATCH.galaxyDetails.map((item, index) => 
+              <Text className="font-bold text-center text-xs"  key ={index} >{item.text}</Text>   
+            )}         
+              </div>
             </div>
             </div>  )  :  hotSpotValue == 'Z Flip' ? 
            (<div> 
@@ -251,9 +261,13 @@ function Carlita() {
            )}   
                     
             </div>
-            
+            <div className='flex justify-between'>
+            {CARLITA_DATA_ZFLIP.galaxyZFlipDetails.map((item, index) => 
+              <Text className="font-bold text-center text-xs"  key ={index} >{item.text}</Text>   
+            )}         
+            </div>           
             </div>  ) 
-              :  !isHotspot  ? (  <>  
+              :  !isHotspot  && (  <>  
               <div className='py-4 px-4 flex justify-center items-center'>
                 </div>
                   <img
@@ -288,12 +302,15 @@ function Carlita() {
                      onClick={() => replyvideo()}
                   />
               
-                  </>
-              
-              ) : <></>
+                  </>              
+              ) 
             } 
                 </Modal>
-                {isModal && hotSpotValue == 'Watch' && <WatchDial></WatchDial>}
+                {isModal && hotSpotValue == 'Watch' && <WatchDial> </WatchDial>}
+                {isModal && hotSpotValue == 'Z Flip' && <Zflip> <VideoPlayer
+          videoSrc={carlitaMobileVideo}
+          onVideoEnd={handleSecondVideoEnd}
+        /> </Zflip>}
                 </div>
     </AppLayout>
   );

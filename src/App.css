@@ -63,6 +63,23 @@ body {
 
 }
 
+.z-flip {
+  position: fixed;
+  left: 20%;
+  transform: translateY(-50%);
+  background-image: url('./assets/images/Usecases/carlita/Carlita-Modal-Zflip-Frame-D.png');
+  background-size: cover;
+  background-position: left;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  color: white;
+  font-size: 2em;
+  text-align: left;
+  z-index: 1000;
+
+}
+
 @media screen and (min-width: 1440px) {
   body {
     max-width: 1440px;

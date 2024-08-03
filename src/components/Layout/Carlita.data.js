@@ -45,28 +45,32 @@ export const CARLITA_DATA_SAMRTPLUG = {
         description:['Connects with SmartThings to review your full body composition' ,
       'Check for any irregular heartbeats',
       'Set goals for steps,sleep and more'],
-        image: health
+        image: health,
+        text: "OverAll helath",
       },
       {
         title:"All the fitness stats you want",
         description:["Check total calories burned on connected apps", 
           "Measure your total steps and track distance",
           "View your current heart rate"],
-        image: fitness
+        image: fitness,
+        text:"Fitness tracking",
       },
       {
         title:"See your sleep",
         description:["Get sleep coaching based on your synced helath data", 
           "Learn about sleep quality,duration, and stages",
           "Understand your sleep style to improve overall health"],
-        image: sleep
+        image: sleep,
+        text:"Sleep coaching",
       },
       {
         title:"Get connected",
         description:["Change the channel,volume  and more on your TV", 
           "Adjust volume, set to silent, and control music playback",
           "Receive and send calls,texts and more"],
-        image: connectivity
+        image: connectivity,
+        text: "Connectivity",
       }
 
 
@@ -79,17 +83,20 @@ export const CARLITA_DATA_SAMRTPLUG = {
       {
         title:"Tap into helath",
         description:'The SmartThings app works with your home so you can achieve your helath goals from anywhere. Click an icon below to learn more.' ,
-        image: smartthings
+        image: smartthings,
+        text: "SmartThings App"
       },
       {
         title:"Chart and track your progress",
         description:"Check in with Sumsung Health to see your daily steps,calories burned, and other daily health stats",
-        image: samsungHealth
+        image: samsungHealth,
+        text: "Samsung Health"
       },
       {
         title:"Achieve perfect form",
         description:"Use your phone as a personal camera to help monitor and improve your form during workouts.",
-        image: smartTrainer
+        image: smartTrainer,
+        text: "AI Smart Trainer"
       },
     ],
     
